@@ -1,0 +1,18 @@
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nombre:</label>
+      <input type="text" class="form-control" name="campoName" required [(ngModel)]= "ubicacion.name" aria-describedby="emailHelp" placeholder="Ingrese el nombre" autofocus>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Area m2:</label>
+      <input type="number" class="form-control" name="campoArea" required  [(ngModel)]= "ubicacion.area_ms" placeholder="Ingrese el area en metros cuadrados">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Ubicación Padre:</label>
+    <select class="custom-select my-1 mr-sm-2" [(ngModel)]= "ubicacion.id_recursive" name="campoPadre" >
+        <option selected>Seleccione...</option>
+        <option *ngFor="let ubicacion of listaUbicaciones" value={{ubicacion.id}}>{{ubicacion.id}} - {{ubicacion.name}}</option>
+      </select>
+    </div>
+    <button class="btn btn-success" (click)="flagEdicion ? actualizarUbicacion() : guardarNuevaUbicacion()">Guardar</button>
+  </form>

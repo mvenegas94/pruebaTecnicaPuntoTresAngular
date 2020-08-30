@@ -1,0 +1,27 @@
+<div class="col-md-4">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">AREA M2</th>
+            <th scope="col">ID UBICACION PADRE</th>
+            <th scope="col" colspan="2" style="text-align: center;">ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let ubicacion of listaUbicaciones">
+          <tr>
+            <th scope="row">{{ubicacion.id}}</th>
+            <td>{{ubicacion.name}}</td>
+            <td>{{ubicacion.area_ms}}</td>
+            <td>{{ubicacion.id_recursive}}</td>
+            <td>
+                <a class="btn btn-info btn-block" [routerLink]="['/ubicaciones/edit', ubicacion.id]">Editar</a>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="eliminarUbicacion(ubicacion.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+</div>
